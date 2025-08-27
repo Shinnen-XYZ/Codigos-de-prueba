@@ -2,15 +2,25 @@ package service;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
+import java.util.*;
 
 public class C_AsistenciaTest {
 
     @Test
-    public void testInicializacion() {
+    public void testGetterEstudiantes() {
         C_Asistencia asistencia = new C_Asistencia();
-        assertNotNull(asistencia.toString()); 
+        assertNotNull(asistencia.getEstudiantes());
+        assertEquals(0, asistencia.getEstudiantes().size());
+    }
+
+    @Test
+    public void testSetterEstudiantes() {
+        C_Asistencia asistencia = new C_Asistencia();
+        List<C_Estudiante> lista = new ArrayList<>();
+        lista.add(new C_Estudiante());
+        asistencia.setEstudiantes(lista);
+
+        assertEquals(1, asistencia.getEstudiantes().size());
     }
 
     @Test
@@ -19,22 +29,17 @@ public class C_AsistenciaTest {
         C_Estudiante estudiante = new C_Estudiante();
         asistencia.addEstudiante(estudiante);
 
-
-        String resultado = asistencia.toString();
-        assertTrue(resultado.contains("estudiantes"));
-        assertTrue(resultado.contains("C_Estudiante"));
+        assertEquals(1, asistencia.getEstudiantes().size());
     }
 
     @Test
-    public void testMultipleEstudiantes() {
+    public void testToString() {
         C_Asistencia asistencia = new C_Asistencia();
-        C_Estudiante estudiante1 = new C_Estudiante();
-        C_Estudiante estudiante2 = new C_Estudiante();
-
-        asistencia.addEstudiante(estudiante1);
-        asistencia.addEstudiante(estudiante2);
-
+        asistencia.addEstudiante(new C_Estudiante());
         String resultado = asistencia.toString();
+
+        assertNotNull(resultado);
+        assertTrue(resultado.contains("estudiantes"));
         assertTrue(resultado.contains("C_Estudiante"));
     }
 }
