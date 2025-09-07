@@ -1,16 +1,8 @@
 package service;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import java.util.*;
 
-@Getter
-@Setter
-@ToString
 public class C_Asistencia {
-
-
     private List<C_Estudiante> estudiantes;
 
     public C_Asistencia() {
@@ -28,9 +20,31 @@ public class C_Asistencia {
     }
 
     public void setEstudiantes(List<C_Estudiante> estudiantes) {
-        for (C_Estudiante cEstudiante : this.estudiantes = estudiantes) {
-        }
+        this.estudiantes = estudiantes;
     }
 
+    public boolean removeEstudiante(C_Estudiante estudiante) {
+        return estudiantes.remove(estudiante);
+    }
 
+    public C_Estudiante buscarPorCarnet(int carnet) {
+        for(C_Estudiante est : estudiantes) {
+            if(est.getCarnet() == carnet) {
+                return est;
+            }
+        }
+        return null;
+    }
+
+    public int cantidadEstudiantes() {
+        return estudiantes.size();
+    }
+
+    public boolean estaVacia() {
+        return estudiantes.isEmpty();
+    }
+
+    public String toString(){
+        return "C_Asistencia{estudiantes=" + estudiantes + "}";
+    }
 }
