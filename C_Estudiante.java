@@ -1,13 +1,9 @@
 package service;
 
 public class C_Estudiante {
-    private int carnet;
+    int carnet;
 
-    public C_Estudiante(){
-        this.carnet = 0;
-    }
-
-    public C_Estudiante(int carnet){
+    public C_Estudiante(int carnet) {
         this.carnet = carnet;
     }
 
@@ -19,18 +15,8 @@ public class C_Estudiante {
         this.carnet = carnet;
     }
 
-    public String toString(){
-        return "C_Estudiante{carnet=" + carnet + "}";
-    }
-}
-
-class MyException extends Exception {
-    
-    public MyException(String mensaje) {
-        super(mensaje);
-    }
-    
+    @Override
     public String toString() {
-        return "MyException: " + getMessage();
+        return "C_Estudiante{carnet=" + carnet + "}";
     }
 }
