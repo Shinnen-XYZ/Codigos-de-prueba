@@ -1,50 +1,39 @@
 package service;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class C_Asistencia {
-    private List<C_Estudiante> estudiantes;
+    ArrayList<C_Estudiante> estudiantes;
 
     public C_Asistencia() {
-        estudiantes = new LinkedList();
+        estudiantes = new ArrayList<C_Estudiante>();
     }
 
-    public void addEstudiante(C_Estudiante e) throws RuntimeException{
-        if( null == e )
-            throw new RuntimeException("No se permiten estudiantes vacios");
-        estudiantes.add(e);
-    }
-
-    public List<C_Estudiante> getEstudiantes() {
-        return new LinkedList(estudiantes);
-    }
-
-    public void setEstudiantes(List<C_Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
-
-    public boolean removeEstudiante(C_Estudiante estudiante) {
-        return estudiantes.remove(estudiante);
-    }
-
-    public C_Estudiante buscarPorCarnet(int carnet) {
-        for(C_Estudiante est : estudiantes) {
-            if(est.getCarnet() == carnet) {
-                return est;
-            }
+    public void addEstudiante(C_Estudiante estudiante) {
+        if (estudiante == null) {
+            throw new MyException("No se puede agregar un estudiante nulo");
         }
-        return null;
+        estudiantes.add(estudiante);
     }
 
-    public int cantidadEstudiantes() {
-        return estudiantes.size();
+    public ArrayList<C_Estudiante> getEstudiantes() {
+        return estudiantes;
     }
 
-    public boolean estaVacia() {
-        return estudiantes.isEmpty();
-    }
-
-    public String toString(){
+    @Override
+    public String toString() {
         return "C_Asistencia{estudiantes=" + estudiantes + "}";
+    }
+
+    // Clase interna MyException
+    public static class MyException extends RuntimeException {
+        public MyException(String mensaje) {
+            super(mensaje);
+        }
+
+        @Override
+        public String toString() {
+            return "MyException: " + getMessage();
+        }
     }
 }
