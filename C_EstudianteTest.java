@@ -4,33 +4,41 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class C_EstudianteTest {
+public class C_AsistenciaTest {
+    C_Asistencia asistencia;
     C_Estudiante estudiante;
 
     @Before
     public void setUp() {
-        estudiante = new C_Estudiante(12345);
+        asistencia = new C_Asistencia();
+        estudiante = new C_Estudiante(55555);
     }
 
     @Test
-    public void testGetCarnet() {
-        int esperado = 12345;
-        int obtenido = estudiante.getCarnet();
+    public void testAddEstudiante() {
+        asistencia.addEstudiante(estudiante);
+        String esperado = "C_Asistencia{estudiantes=[C_Estudiante{carnet=55555}]}";
+        String obtenido = asistencia.toString();
+        assertEquals(esperado, obtenido);
+    }
+
+    @Test(expected = C_Asistencia.MyException.class)
+    public void testAddEstudianteNull() {
+        asistencia.addEstudiante(null);
+    }
+
+    @Test
+    public void testToStringVacio() {
+        String esperado = "C_Asistencia{estudiantes=[]}";
+        String obtenido = asistencia.toString();
         assertEquals(esperado, obtenido);
     }
 
     @Test
-    public void testSetCarnet() {
-        estudiante.setCarnet(67890);
-        int esperado = 67890;
-        int obtenido = estudiante.getCarnet();
-        assertEquals(esperado, obtenido);
-    }
-
-    @Test
-    public void testToString() {
-        String esperado = "C_Estudiante{carnet=12345}";
-        String obtenido = estudiante.toString();
+    public void testMyExceptionToString() {
+        C_Asistencia.MyException e = new C_Asistencia.MyException("Error de prueba");
+        String esperado = "MyException: Error de prueba";
+        String obtenido = e.toString();
         assertEquals(esperado, obtenido);
     }
 }
