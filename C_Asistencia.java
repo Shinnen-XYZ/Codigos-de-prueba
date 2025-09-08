@@ -25,7 +25,6 @@ public class C_Asistencia {
         return "C_Asistencia{estudiantes=" + estudiantes + "}";
     }
 
-    // Clase interna MyException
     public static class MyException extends RuntimeException {
         public MyException(String mensaje) {
             super(mensaje);
