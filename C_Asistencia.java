@@ -1,38 +1,29 @@
-package service;
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jmencosb</groupId>
+    <artifactId>Repaso101</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.38</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-import java.util.ArrayList;
-
-public class C_Asistencia {
-    ArrayList<C_Estudiante> estudiantes;
-
-    public C_Asistencia() {
-        estudiantes = new ArrayList<C_Estudiante>();
-    }
-
-    public void addEstudiante(C_Estudiante estudiante) {
-        if (estudiante == null) {
-            throw new MyException("No se puede agregar un estudiante nulo");
-        }
-        estudiantes.add(estudiante);
-    }
-
-    public ArrayList<C_Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    @Override
-    public String toString() {
-        return "C_Asistencia{estudiantes=" + estudiantes + "}";
-    }
-
-    public static class MyException extends RuntimeException {
-        public MyException(String mensaje) {
-            super(mensaje);
-        }
-
-        @Override
-        public String toString() {
-            return "MyException: " + getMessage();
-        }
-    }
-}
+</project>
