@@ -1,9 +1,0 @@
-@startuml
-actor Profesor
-rectangle Sistema {
-  Profesor -- (Listar estudiantes)
-  Profesor -- (Crear estudiante)
-  Profesor -- (Editar estudiante)
-  Profesor -- (Eliminar estudiante)
-}
-@enduml
