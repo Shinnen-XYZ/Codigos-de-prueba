@@ -1,0 +1,15 @@
+Proyecto\controller\LoginController.class
+Proyecto\repo\EstudianteRepo.class
+Proyecto\dto\EstudianteRequest.class
+Proyecto\strategy\FrancesStrategy.class
+Proyecto\EstudianteService.class
+Proyecto\Factory\EstudianteFactory.class
+Proyecto\controller\EstudianteController.class
+Proyecto\GlobalExceptionHandler.class
+Proyecto\strategy\EspanolStrategy.class
+Proyecto\dto\LoginRequest.class
+Proyecto\strategy\InglesStrategy.class
+Proyecto\strategy\IdiomaStrategyFactory.class
+Proyecto\model\Estudiante.class
+Proyecto\Application.class
+Proyecto\strategy\IdiomaStrategy.class
