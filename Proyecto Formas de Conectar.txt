@@ -1,0 +1,48 @@
+Forma 1 desde VS
+-----
+Ctrl + Shift + P
+WSL: Open Folder in WSL
+/mnt/c/Users/Jefer/OneDrive - Universidad Panamericana UPANA/UPANA 5To Semestre/Microprocesadores/Proyecto
+
+------
+Ctrl + `
+gcc -w servidor.c bin/lista.c bin/zstring.c bin/missing.c -I libs -o servidor
+gcc -w cliente.c bin/lista.c bin/zstring.c bin/scanner.c bin/missing.c -I libs -o cliente
+
+Terminal 1
+./servidor
+./cliente
+
+
+FORMA 2 UBUNTU APP
+cd "/mnt/c/Users/Jefer/OneDrive - Universidad Panamericana UPANA/UPANA 5To Semestre/Microprocesadores/Proyecto"
+
+Eliminar lo clientes creados
+rm clientes.dat mensajes.dat
+
+gcc -w servidor.c bin/lista.c bin/zstring.c bin/missing.c -I libs -o servidor -lpthread
+gcc -w cliente.c bin/lista.c bin/zstring.c bin/scanner.c bin/missing.c -I libs -o cliente -lpthread
+./servidor
+./cliente localhost
+CREAR_CLIENTE("Juan","Perez",1234567890,"Zona 10",55551234,22221234,"juan@mail.com");
+CREAR_CLIENTE("Maria","Lopez",9876543210,"Zona 1",55559876,22229876,"maria@mail.com");
+CREAR_CLIENTE("Carlos","Gomez",1111111111,"Zona 5",55550001,22220001,"carlos@mail.com");
+ENVIAR_MENSAJE(1,2,"Hola Maria como estas");
+ENVIAR_MENSAJE(2,1,"Bien gracias y tu Juan");
+ENVIAR_MENSAJE(3,2,"Maria tienes reunion hoy");
+LISTA(C);
+LISTA(M);
+OBTENER_MENSAJES(2);
+BUSCAR_CLIENTE(1234567890);
+ESTRESAR(10,1,2,"Mensaje de prueba de estres");
+
+Terminal 3
+./cliente localhost
+CREAR_CLIENTE("Ana","Ramos",2222222222,"Zona 3",55550002,22220002,"ana@mail.com");
+ENVIAR_MENSAJE(4,1,"Hola Juan soy Ana");
+
+
+
+
+
+
